@@ -12,6 +12,8 @@ body {
     justify-content: flex-start;
     align-items: center;
     min-height: 100vh;
+    /* Cursor Style */
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"><circle cx="6" cy="6" r="6" fill="rgba(0,80,150,0.8)" /></svg>') 6 6, auto;
 }
 
 header {
@@ -25,13 +27,14 @@ header {
 
 main {
     margin-top: 20px;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(240, 240, 240, 0.9));
+    background: linear-gradient(135deg, rgba(0, 51, 102, 0.8), rgb(255, 99, 71, 0.8));
     border-radius: 15px;
     padding: 25px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     width: 90%;
     max-width: 600px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    pointer-events: none;
 }
 
 main:hover {
@@ -39,12 +42,16 @@ main:hover {
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
 }
 
-h2, h3 {
+h2,
+h3 {
     color: #333;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-button {
+button,
+.edit-btn,
+.update-btn,
+.remove-btn {
     background: linear-gradient(90deg, rgba(0, 51, 102, 0.8), tomato);
     border: none;
     cursor: pointer;
@@ -52,20 +59,24 @@ button {
     padding: 10px 15px;
     font-weight: bold;
     transition: background 0.3s ease, transform 0.3s ease;
-    width: 100%;
+    pointer-events: auto;
 }
 
-button:hover {
+button:hover,
+.edit-btn:hover,
+.update-btn:hover,
+.remove-btn:hover {
     background: linear-gradient(90deg, tomato, rgba(0, 51, 102, 0.8));
     transform: scale(1.05);
 }
 
 section {
     background: white;
- border-radius: 10px;
+    border-radius: 10px;
     padding: 15px;
     margin: 10px 0;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    pointer-events: auto;
 }
 
 table {
@@ -73,13 +84,16 @@ table {
     border-collapse: collapse;
     margin-top: 10px;
     text-align: center;
+    pointer-events: auto;
 }
 
-th, td {
+th,
+td {
     padding: 10px;
     text-align: left;
     border-bottom: 1px solid #ddd;
     text-align: center;
+    pointer-events: auto;
 }
 
 th {
@@ -90,17 +104,21 @@ th {
 tr:hover {
     background-color: #f5f5f5;
     text-align: center;
+    pointer-events: auto;
 }
+
 .form-container {
     background: rgba(255, 255, 255, 0.9);
-    border-radius: 15px;
+    border-radius:15px;
     padding: 20px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     margin: 20px 0;
+    pointer-events: auto;
 }
 
 .form-group {
     margin-bottom: 15px;
+    pointer-events: auto;
 }
 
 input {
@@ -110,27 +128,34 @@ input {
     border: 1px solid #ccc;
     border-radius: 10px;
     transition: border 0.3s ease, box-shadow 0.3s ease;
+    pointer-events: auto;
 }
 
 input:focus {
     border: 1px solid rgba(0, 51, 102, 0.8);
     outline: none;
-    box-shadow: 0 0 5px rgba(0, 51, 102, 0.5);
+    box-shadow: 5px 0 5px rgba(0, 51, 102, 0.5), -5px 0 5px tomato;
 }
 
 button {
-    background: linear-gradient(90deg, rgba(0, 51, 102, 0.8), tomato);
-    border: none;
-    cursor: pointer;
-    border-radius: 10px;
-    padding: 10px 15px;
-    font-weight: bold;
-    transition: background 0.3s ease, transform 0.3s ease;
-    width: 100%;
     font-size: 16px;
 }
 
-button:hover {
-    background: linear-gradient(90deg, tomato, rgba(0, 51, 102, 0.8));
-    transform: scale(1.05);
+.actions-container {
+    display: flex;
+    justify-content: center;
+    pointer-events: auto;
+}
+
+.actions-container button {
+    margin: 5px;
+    width: auto;
+}
+
+#trail-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 99999;
 }
